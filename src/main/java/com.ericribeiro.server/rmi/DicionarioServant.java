@@ -21,7 +21,6 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         this.dicionario = arquivo.carregarDicionario();
     }
 
-
     @Override
     public Integer adicionar(Palavra palavra) throws RemoteException {
         Integer codigo;
@@ -55,7 +54,6 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         return plvrConsultada;
     }
 
-
     /**
      *
      * código de retorno "1" implica remoção bem sucedida.
@@ -76,6 +74,8 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         } else {
             codigo = 2;
         }
+
+        arquivo.gravar(this.dicionario);
 
         return codigo;
     }

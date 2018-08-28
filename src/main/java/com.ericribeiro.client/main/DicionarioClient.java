@@ -1,13 +1,13 @@
 package com.ericribeiro.client.main;
 
+import com.ericribeiro.client.dialog.Dialog;
 import com.ericribeiro.server.model.Palavra;
 import com.ericribeiro.server.rmi.Dicionario;
-import com.ericribeiro.client.dialog.Dialog;
 
-import java.rmi.Naming;
-import java.rmi.RemoteException;
 import java.net.MalformedURLException;
+import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 public class DicionarioClient {
 
@@ -49,16 +49,15 @@ public class DicionarioClient {
 
     public static void main(String[] args) {
 
-//		String servidor = Dialog.inserirEndrServidor();
-        String servidor = "rmi://localhost/DicionarioService";
+		String servidor = Dialog.inserirEndrServidor();
+//        String servidor = "rmi://localhost/DicionarioService";
         String nome = servidor.substring(servidor.lastIndexOf("/") + 1);
 
         try {
             Dicionario dicionario = (Dicionario) Naming.lookup(servidor);
             Dialog.exibirMsgInfo("Objeto remoto \'" + nome + "\' encontrado no servidor.");
 
-            // Loop para exibir continuamente o menu, pensar em solução mais elegante.
-            while(true) {
+            while (true) {
                 String opcao = Dialog.exibirOpcoes();
 
                 switch (opcao) {
@@ -90,6 +89,10 @@ public class DicionarioClient {
             String mensagem = "Objeto remoto \'" + nome + "\' não está disponível.";
             Dialog.exibirMsgErro(mensagem);
             e.printStackTrace();
+
+        } catch (NullPointerException e) {
+            String mensagem = "O programa será encerrado.";
+            Dialog.exibirMsgInfo(mensagem);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -38,7 +38,7 @@ public class Arquivo {
         Set<Palavra> dicionario = null;
 
         try {
-            dicionario = this.objectMapper.readValue(this.arquivo, new TypeReference<Set<Palavra>>(){});
+            dicionario = this.objectMapper.readValue(this.arquivo, new TypeReference<Set<Palavra>>() {});
 
         } catch (MismatchedInputException e) {
             dicionario = new HashSet<>();

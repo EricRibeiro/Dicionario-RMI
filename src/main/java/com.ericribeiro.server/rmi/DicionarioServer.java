@@ -9,6 +9,7 @@ public class DicionarioServer {
 			Dicionario c = new DicionarioServant();
 			Naming.rebind("rmi://localhost/DicionarioService", c);
 			System.out.println("Servidor Dicionario em execução.");
+
 		} catch (Exception e) {
 			System.out.println("Não foi possível realizar a conexão com o servidor: " + e.toString());
 			e.printStackTrace();
