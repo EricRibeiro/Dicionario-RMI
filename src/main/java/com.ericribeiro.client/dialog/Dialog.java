@@ -45,7 +45,7 @@ public class Dialog {
     }
 
     public static String inserirEndrServidor() {
-        String mensagem = "<html>Insira o caminho do inserirEndrServidor." + "<br/>" + "<h5><i>e.g</i> rmi://localhost/DicionarioService<h5></html>";
+        String mensagem = "<html>Insira o caminho do servidor." + "<br/>" + "<h5><i>e.g</i> rmi://localhost/DicionarioService<h5></html>";
 
         String servidor = JOptionPane.showInputDialog(null,
                 mensagem, "Dicionário",

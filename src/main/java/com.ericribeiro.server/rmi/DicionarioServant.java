@@ -22,7 +22,7 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
     }
 
     @Override
-    public Integer adicionar(Palavra palavra) throws RemoteException {
+    public synchronized Integer adicionar(Palavra palavra) throws RemoteException {
         Integer codigo;
 
         if (this.dicionario.contains(palavra)) {
@@ -40,7 +40,7 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
     }
 
     @Override
-    public Palavra consultar(Palavra palavra) throws RemoteException {
+    public synchronized Palavra consultar(Palavra palavra) throws RemoteException {
         Palavra plvrConsultada = null;
 
         if (this.dicionario.contains(palavra)) {
@@ -64,7 +64,7 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
      * @throws RemoteException
      */
     @Override
-    public Integer remover(Palavra palavra) throws RemoteException {
+    public synchronized Integer remover(Palavra palavra) throws RemoteException {
         Integer codigo;
 
         if(this.dicionario.contains(palavra)) {
