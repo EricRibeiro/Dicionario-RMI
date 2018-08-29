@@ -14,13 +14,13 @@ Uma aplicação simples com o objetivo de explorar os conceitos principais do Ja
 
 - ##### DicionarioClient
 
- Realiza a conexão com o servidor RMI, invoca os métodos deste e utiliza os componentes gráficos para capturar as inserções do usuário.
+ Realiza a conexão com o servidor RMI, invoca os seus métodos e utiliza os componentes gráficos para capturar as inserções do usuário.
 
 #### Servidor
 
 - ##### Arquivo
 
- Responsável pela criação da Collection proveniente do arquivo JSON e da escrita da estrutura alterada no arquivo.
+ Responsável pela criação da coleção originada do arquivo JSON e da escrita da estrutura alterada no arquivo.
 
 - ##### Palavra
 
@@ -40,10 +40,9 @@ Uma aplicação simples com o objetivo de explorar os conceitos principais do Ja
  
  ## Instruções
  
- A aplicação é dependente da biblioteca [Jackson Mapper](https://mvnrepository.com/artifact/com.fasterxml.jackson
- .core/jackson-databind) para escrever o arquivo JSON a partir da Collection de Palavras e para fazer o processo 
- inverso. O Maven pode ser utilizado para fazer o download das dependências a partir do *pom.xml* presente no diretório 
- raiz ou elas podem ser importadas manualmente.
+ A aplicação é dependente da biblioteca [Jackson Mapper](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind) para escrever o arquivo JSON a partir da coleção de *Palavras* e para fazer o processo inverso. 
  
- É necessário executar o *rmiregistry* no diretório do código compilado para executar a aplicação. 
+ O Maven pode ser utilizado para fazer o download das dependências a partir do *pom.xml* presente no diretório raiz ou elas podem ser importadas manualmente.
+ 
+ **É necessário executar o *rmiregistry* no diretório do código compilado para executar a aplicação.**
  
