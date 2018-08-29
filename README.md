@@ -40,7 +40,7 @@ Uma aplicação simples com o objetivo de explorar os conceitos principais do Ja
  
  ## Instruções
  
- A aplicação é dependente da biblioteca [Jackson Mapper](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind) para escrever o arquivo JSON a partir da coleção de *Palavras* e para fazer o processo inverso. 
+ A aplicação é dependente da biblioteca [Jackson Databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind) para escrever o arquivo JSON a partir da coleção de *Palavras* e para fazer o processo inverso. 
  
  O Maven pode ser utilizado para fazer o download das dependências a partir do *pom.xml* presente no diretório raiz ou elas podem ser importadas manualmente.
  
