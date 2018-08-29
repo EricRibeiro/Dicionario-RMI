@@ -11,6 +11,13 @@ import java.rmi.RemoteException;
 
 public class DicionarioClient {
 
+    /**
+     *
+     * Adiciona uma nova palavra no dicionário
+     *
+     * @param dicionario
+     * @throws RemoteException
+     */
     private static void adicionarPlvr(Dicionario dicionario) throws RemoteException {
         Palavra novaPlvr = Dialog.inserirNovaEntrada();
         Integer codOpAdicao = dicionario.adicionar(novaPlvr);
@@ -23,6 +30,13 @@ public class DicionarioClient {
         }
     }
 
+    /**
+     *
+     * Consulta o significado de uma palavra existente no dicionário.
+     *
+     * @param dicionario
+     * @throws RemoteException
+     */
     private static void consultarPlvr(Dicionario dicionario) throws RemoteException {
         String plvrInserida = Dialog.inserirPalavra("<html>Insira a palavra que deseja consultar.</html>");
         Palavra plvrConsultada = dicionario.consultar(new Palavra(plvrInserida));
@@ -35,6 +49,13 @@ public class DicionarioClient {
         }
     }
 
+    /**
+     *
+     * Remove uma palavra do dicionário.
+     *
+     * @param dicionario
+     * @throws RemoteException
+     */
     private static void removerPlvr(Dicionario dicionario) throws RemoteException {
         String plvrRemovida = Dialog.inserirPalavra("<html>Insira a palavra que deseja remover.</html>");
         Integer codOpRemocao = dicionario.remover(new Palavra(plvrRemovida));
@@ -50,7 +71,6 @@ public class DicionarioClient {
     public static void main(String[] args) {
 
 		String servidor = Dialog.inserirEndrServidor();
-//        String servidor = "rmi://localhost/DicionarioService";
         String nome = servidor.substring(servidor.lastIndexOf("/") + 1);
 
         try {

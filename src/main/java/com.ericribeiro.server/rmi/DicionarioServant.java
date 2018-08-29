@@ -21,6 +21,17 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         this.dicionario = arquivo.carregarDicionario();
     }
 
+    /**
+     *
+     * Método responsável por adicionar uma palavra no dicionário.
+     *
+     * código de retorno "1" implica adição bem sucedida.
+     * código de retorno "2" implica adição bem sucedida com sobrescrita de duplicata.
+     *
+     * @param palavra
+     * @return código responsável por notificar o estado da operação.
+     * @throws RemoteException
+     */
     @Override
     public synchronized Integer adicionar(Palavra palavra) throws RemoteException {
         Integer codigo;
@@ -39,6 +50,14 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         return codigo;
     }
 
+    /**
+     *
+     * Método responsável por retornar o significado de uma palavra do dicionário.
+     *
+     * @param palavra
+     * @return palavra pesquisada ou null caso ela não exista no dicionário.
+     * @throws RemoteException
+     */
     @Override
     public synchronized Palavra consultar(Palavra palavra) throws RemoteException {
         Palavra plvrConsultada = null;
@@ -55,6 +74,8 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
     }
 
     /**
+     *
+     * Método responsável por remover uma palavra do dicionário.
      *
      * código de retorno "1" implica remoção bem sucedida.
      * código de retorno "2" implica ausência da palavra no dicionário .

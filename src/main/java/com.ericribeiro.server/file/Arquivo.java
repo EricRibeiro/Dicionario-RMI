@@ -19,6 +19,11 @@ public class Arquivo {
         carregarArquivo(arquivo);
     }
 
+    /**
+     * Carrega o arquivo json ou, caso não exista, cria um novo.
+     *
+     * @param arquivo
+     */
     private void carregarArquivo(File arquivo) {
         if (!arquivo.exists()) {
             try {
@@ -34,6 +39,13 @@ public class Arquivo {
         this.arquivo = arquivo;
     }
 
+
+    /**
+     *
+     * Abre o arquivo e cria a collection de palavras.
+     *
+     * @return palavras
+     */
     public Set<Palavra> carregarDicionario() {
         Set<Palavra> dicionario = null;
 
@@ -52,6 +64,12 @@ public class Arquivo {
         return dicionario;
     }
 
+    /**
+     *
+     * Grava a collectiono em arquivo json.
+     *
+     * @param dicionario
+     */
     public void gravar(Set<Palavra> dicionario) {
         try {
             objectMapper.writeValue(arquivo, dicionario);
