@@ -37,15 +37,14 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
         Integer codigo;
 
         if (this.dicionario.contains(palavra)) {
-            this.dicionario.add(palavra);
             codigo = 2;
 
         } else {
-            this.dicionario.add(palavra);
             codigo = 1;
         }
 
-        arquivo.gravar(this.dicionario);
+        this.dicionario.add(palavra);
+        this.arquivo.gravar(this.dicionario);
 
         return codigo;
     }
@@ -90,13 +89,12 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
 
         if(this.dicionario.contains(palavra)) {
             this.dicionario.remove(palavra);
+            this.arquivo.gravar(this.dicionario);
             codigo = 1;
 
         } else {
             codigo = 2;
         }
-
-        arquivo.gravar(this.dicionario);
 
         return codigo;
     }
