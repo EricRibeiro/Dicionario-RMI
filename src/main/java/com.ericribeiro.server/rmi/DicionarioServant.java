@@ -34,15 +34,8 @@ public class DicionarioServant extends java.rmi.server.UnicastRemoteObject imple
      */
     @Override
     public synchronized Integer adicionar(Palavra palavra) throws RemoteException {
-        Integer codigo;
-
-        if (this.dicionario.contains(palavra)) {
-            codigo = 2;
-
-        } else {
-            codigo = 1;
-        }
-
+        Integer codigo = (this.dicionario.contains(palavra)) ? 2 : 1;
+        
         this.dicionario.add(palavra);
         this.arquivo.gravar(this.dicionario);
 
